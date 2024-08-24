@@ -1,0 +1,24 @@
+{% extends 'shared/base.html' %}
+
+{% block content %}
+<h1 class="text-3xl font-bold mb-5 p-4">Todo List</h1>
+
+<a href="/items/new" class="btn m-4">新增待辦</a>
+
+<p class="m-6 text-md text-gray-800 font-bold">任務數量：{{ items|length }} 個</p>
+
+<table class="table m-4">
+  <thead>
+    <tr>
+      <th>完成</th>
+      <th>標題</th>
+      <th>描述</th>
+      <th>截止日</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  {% include 'items/_items.html' with items=items %}
+</table>
+
+{% endblock %}

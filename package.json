@@ -1,0 +1,11 @@
+{
+  "name": "core",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "dev": "npx tailwindcss -i ./src/style/input.css -o ./static/style/output.css --watch"
+  },
+  "author": "",
+  "license": "ISC"
+}

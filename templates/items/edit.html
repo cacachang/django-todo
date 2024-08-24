@@ -1,0 +1,26 @@
+{% extends 'shared/base.html' %}
+
+{% block content %}
+
+  <h1 class="text-3xl font-bold mb-5 p-4">編輯待辦</h1>
+
+  <form action="{% url 'items:update' item.id %}" method="POST" class="p-4">
+    {% csrf_token %}
+    <div>
+      <label for="title">標題</label>
+      <input type="text" name="title" id="title" value="{{ item.title }}" class="input input-bordered mb-2">
+    </div>
+
+    <div>
+      <label for="description">描述</label>
+      <input type="text" name="description" id="description" value="{{ item.description }}" class="input input-bordered mb-2">
+    </div>
+
+    <div>
+      <label for="deadline">截止日</label>
+      <input type="date" name="deadline" id="deadline" value="{{ item.deadline|date:'Y-m-d' }}" class="input input-bordered mb-2">
+    </div>
+
+    <input type="submit" class="btn">
+  </form>
+{% endblock %}

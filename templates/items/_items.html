@@ -1,0 +1,17 @@
+<tbody id="items">
+  {% for item in items %}
+    <tr>
+      <th class="text-xl hover:text-green-600">☑{{ item.status }}</th>
+      <th>{{ item.title }}</th>
+      <th>{{ item.description }}</th>
+      <th>{{ item.deadline }}</th>
+      <th><a href="{% url 'items:update' item.id %}" class="btn">編輯</a></th>
+      <th>
+        <form action="{% url 'items:delete' item.id %}" method="post">
+          <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+          <button class="btn">刪除</button>
+        </form>
+      </th>
+    </tr>
+  {% endfor %}
+</tbody>
