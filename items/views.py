@@ -4,8 +4,10 @@ from .models import Item
 from .forms import ItemForm
 
 def index(request):
-    items = Item.objects.all()
-    return render(request, "items/index.html", {"items": items})
+    progressing_items = Item.objects.filter(status=Item.Status.PROGRESSING)
+    completed_items = Item.objects.filter(status=Item.Status.COMPLETED)
+
+    return render(request, "items/index.html", {"progressing_items": progressing_items, "completed_items": completed_items})
 
 def create(request):
     if request.method == 'POST':
@@ -29,6 +31,7 @@ def update(request, id):
             item.title = form.cleaned_data["title"]
             item.description = form.cleaned_data["description"]
             item.deadline = form.cleaned_data["deadline"]
+            item.status = form.cleaned_data["status"]
             item.save()
 
             return redirect("items:index")

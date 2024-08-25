@@ -5,9 +5,22 @@
 
 <a href="/items/new" class="btn m-4">新增待辦</a>
 
-<p class="m-6 text-md text-gray-800 font-bold">任務數量：{{ items|length }} 個</p>
+<table class="table m-4 mb-20 w-1/2">
+  <p class="text-lg mx-4 font-bold border-4 p-4 rounded-xl bg-green-500 text-white max-w-fit">已完成事項</p>
+  <thead>
+    <tr>
+      <th></th>
+      <th>標題</th>
+      <th>描述</th>
+      <th>截止日</th>
+      <th></th>
+    </tr>
+  </thead>
+  {% include 'items/_completed.html' with items=completed_items %}
+</table>
 
-<table class="table m-4">
+<table class="table m-4 w-1/2">
+  <p class="text-lg mx-4 font-bold border-4 p-4 rounded-xl bg-red-500 text-white max-w-fit">待辦事項</p>
   <thead>
     <tr>
       <th>完成</th>
@@ -18,7 +31,7 @@
       <th></th>
     </tr>
   </thead>
-  {% include 'items/_items.html' with items=items %}
+  {% include 'items/_progressing.html' with items=progressing_items %}
 </table>
 
 {% endblock %}
