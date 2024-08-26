@@ -6,7 +6,7 @@ class Item(models.Model):
     deadline = models.DateField()
 
     class Status(models.TextChoices):
-        COMPLETED = 'Complete'
+        COMPLETED = 'Completed'
         PROGRESSING = 'Progressing'
     
     status = models.CharField(

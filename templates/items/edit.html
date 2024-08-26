@@ -21,6 +21,14 @@
       <input type="date" name="deadline" id="deadline" value="{{ item.deadline|date:'Y-m-d' }}" class="input input-bordered mb-2">
     </div>
 
+    <div>
+      <label for="status">狀態</label>
+      <select id="status" name="status" value="{{ item.status }}" class="input input-bordered mb-2">
+        <option value="Progressing">處理中</option>
+        <option value="Completed">已完成</option>
+      </select>
+    </div>
+
     <input type="submit" class="btn">
   </form>
 {% endblock %}

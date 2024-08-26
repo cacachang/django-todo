@@ -1,7 +1,9 @@
+{% load custom_filters %}
+
 <tbody id="items">
   {% for item in items %}
     <tr>
-      <th class="text-xl hover:text-green-600 cursor-pointer">☑</th>
+      <th class="text-xl cursor-pointer">☑</th>
       <th>{{ item.title }}</th>
       <th>{{ item.description }}</th>
       <th>{{ item.deadline }}</th>
