@@ -36,7 +36,9 @@ def update(request, id):
             item.status = form.cleaned_data["status"]
             item.save()
 
-            return redirect("items:index")
+            items = Item.objects.all()
+            items_partial = render_to_string("items/_items.html", {'items': items})
+            return HttpResponse(items_partial)
     else:
         form = ItemForm(item.__dict__)
 
