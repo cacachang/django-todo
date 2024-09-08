@@ -3,7 +3,8 @@
 {% block content %}
 <h1 class="p-4 mb-5 text-3xl font-bold">Todo List</h1>
 
-<a href="/new" class="m-4 btn">新增待辦</a>
+<a href="/new" class="m-4 btn" hx-get="/new" hx-target="#new_item">新增待辦</a>
+<div id="new_item"></div>
 
 <table class="table w-1/2 m-4">
   <p class="p-4 mx-4 text-lg font-bold text-white bg-red-500 border-4 rounded-xl max-w-fit">事項</p>
