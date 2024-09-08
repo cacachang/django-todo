@@ -2,28 +2,28 @@
 
 {% block content %}
 
-  <h1 class="text-3xl font-bold mb-5 p-4">新增待辦</h1>
+  <h1 class="p-4 mb-5 text-3xl font-bold">新增待辦</h1>
 
   <form action="{% url 'items:create' %}" method="POST" class="p-4">
     {% csrf_token %}
     <div>
       <label for="title">標題</label>
-      <input type="text" name="title" id="title" class="input input-bordered mb-2">
+      <input type="text" name="title" id="title" class="mb-2 input input-bordered">
     </div>
 
     <div>
       <label for="description">描述</label>
-      <input type="text" name="description" id="description" class="input input-bordered mb-2">
+      <input type="text" name="description" id="description" class="mb-2 input input-bordered">
     </div>
 
     <div>
       <label for="deadline">截止日</label>
-      <input type="date" name="deadline" id="deadline" class="input input-bordered mb-2">
+      <input type="date" name="deadline" id="deadline" class="mb-2 input input-bordered">
     </div>
 
     <div>
       <label for="status">狀態</label>
-      <select id="status" name="status" class="input input-bordered mb-2">
+      <select id="status" name="status" class="mb-2 input input-bordered">
         <option value="Progressing">處理中</option>
         <option value="Completed">已完成</option>
       </select>
@@ -31,5 +31,5 @@
 
     <input type="submit" class="btn">
   </form>
-
+</div>
 {% endblock %}

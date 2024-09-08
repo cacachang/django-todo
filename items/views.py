@@ -4,10 +4,9 @@ from .models import Item
 from .forms import ItemForm
 
 def index(request):
-    progressing_items = Item.objects.filter(status=Item.Status.PROGRESSING)
-    completed_items = Item.objects.filter(status=Item.Status.COMPLETED)
+    items = Item.objects.all()
 
-    return render(request, "items/index.html", {"progressing_items": progressing_items, "completed_items": completed_items})
+    return render(request, "items/index.html", {'items': items})
 
 def create(request):
     if request.method == 'POST':

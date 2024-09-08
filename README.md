@@ -10,3 +10,5 @@ Poetry 1.8.2
 - `poetry install` 安裝套件
 - `python manage.py migrate` 對 migration 做 migrate
 - `python manage.py runserver` 啟動 server
+- `npm install` 安裝前端套件
+- `npm run dev` 前端打包

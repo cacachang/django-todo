@@ -3,24 +3,10 @@
 {% block content %}
 <h1 class="p-4 mb-5 text-3xl font-bold">Todo List</h1>
 
-<a href="/items/new" class="m-4 btn">新增待辦</a>
-
-<table class="table w-1/2 m-4 mb-20">
-  <p class="p-4 mx-4 text-lg font-bold text-white bg-green-500 border-4 rounded-xl max-w-fit">已完成事項</p>
-  <thead>
-    <tr>
-      <th></th>
-      <th>標題</th>
-      <th>描述</th>
-      <th>截止日</th>
-      <th></th>
-    </tr>
-  </thead>
-  {% include 'items/_items.html' with items=completed_items %}
-</table>
+<a href="/new" class="m-4 btn">新增待辦</a>
 
 <table class="table w-1/2 m-4">
-  <p class="p-4 mx-4 text-lg font-bold text-white bg-red-500 border-4 rounded-xl max-w-fit">待辦事項</p>
+  <p class="p-4 mx-4 text-lg font-bold text-white bg-red-500 border-4 rounded-xl max-w-fit">事項</p>
   <thead>
     <tr>
       <th>完成</th>
@@ -31,7 +17,7 @@
       <th></th>
     </tr>
   </thead>
-  {% include 'items/_items.html' with items=progressing_items %}
+  {% include 'items/_items.html' with items=items %}
 </table>
 
 {% endblock %}
