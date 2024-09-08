@@ -2,8 +2,9 @@
 
 <tbody id="items">
   {% for item in items %}
-    <tr>
-      <th class='text-xl cursor-pointer'>☑</th>
+    <tr x-data="{ completed: {{ item.status|is_completed }} }">
+      <th :class="completed ? 'text-xl cursor-pointer text-green-600' : 
+      'text-xl cursor-pointer'">☑</th>
       <th>{{ item.title }}</th>
       <th>{{ item.description }}</th>
       <th>{{ item.deadline }}</th>
