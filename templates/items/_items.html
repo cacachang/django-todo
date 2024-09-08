@@ -7,7 +7,7 @@
       <th>{{ item.title }}</th>
       <th>{{ item.description }}</th>
       <th>{{ item.deadline }}</th>
-      <th><a href="{% url 'items:update' item.id %}" class="btn">編輯</a></th>
+      <th><a href="{% url 'items:update' item.id %}" class="btn" hx-get="/edit/{{ item.id }}" hx-target="#edit_item">編輯</a></th>
       <th>
         <form action="{% url 'items:delete' item.id %}" method="post">
           <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
