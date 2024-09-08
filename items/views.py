@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponseNotAllowed
+from django.http import HttpResponseNotAllowed, HttpResponse
+from django.template.loader import render_to_string
 from .models import Item
 from .forms import ItemForm
 
@@ -16,7 +17,9 @@ def create(request):
             item = Item(**form.cleaned_data)
             item.save()
 
-            return redirect("items:index")
+            items = Item.objects.all()
+            items_partial = render_to_string("items/_items.html", {'items': items})
+            return HttpResponse(items_partial)
     return render(request, "items/new.html")
 
 
