@@ -1,10 +1,10 @@
 {% extends 'shared/base.html' %}
 
 {% block content %}
-
+<div x-data="{ open: true }" x-show="open">
   <h1 class="p-4 mb-5 text-3xl font-bold">編輯待辦</h1>
 
-  <form class="p-4" hx-post="/edit/{{ item.id }}" hx-target="#items" hx-swap="outerHTML">
+  <form class="p-4" hx-post="/edit/{{ item.id }}" hx-target="#items" hx-swap="outerHTML" @submit="open = ! open">
     {% csrf_token %}
     <div>
       <label for="title">標題</label>
